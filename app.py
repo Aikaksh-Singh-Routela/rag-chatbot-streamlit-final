@@ -23,12 +23,12 @@ if "documents_loaded" not in st.session_state:
 if "collection_name" not in st.session_state:
     st.session_state.collection_name = "documents"
 
-# Initialize Groq client using Hugging Face Secrets
+# Initialize Groq client using Streamlit Cloud Secrets
 try:
     groq_client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 except Exception as e:
     groq_client = None
-    st.error(f"Please add GROQ_API_KEY to your Space secrets in Settings. Error: {str(e)}")
+    st.error(f"Please add GROQ_API_KEY to your Streamlit Cloud secrets. Error: {str(e)}")
 
 # Initialize embedding model
 @st.cache_resource
@@ -186,6 +186,7 @@ with st.sidebar:
     st.markdown("- What is this document about?")
     st.markdown("- Summarize the main points")
     st.markdown("- What are the key findings?")
+    st.markdown("- Who is the target audience?")
 
 # Main chat interface
 st.subheader("💬 Ask Questions About Your Documents")
@@ -207,7 +208,7 @@ if prompt := st.chat_input("Ask a question about your documents..."):
         if not st.session_state.documents_loaded:
             response = "📄 Please upload documents first using the sidebar on the left."
         elif groq_client is None:
-            response = "🔑 Please add your GROQ_API_KEY to the Space secrets in Settings."
+            response = "🔑 Please add your GROQ_API_KEY to the Streamlit Cloud secrets in Settings."
         else:
             with st.spinner("🔍 Searching documents and generating answer..."):
                 embedding_model = load_embedding_model()
