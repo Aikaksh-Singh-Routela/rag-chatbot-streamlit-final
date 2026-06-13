@@ -1,3 +1,4 @@
+# v2 - using llama3-8b-8192 for better rate limits
 import streamlit as st
 import os
 import tempfile
