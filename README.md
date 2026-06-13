@@ -1,20 +1,15 @@
 ---
-title: Rag Chatbot Pdf
-emoji: 🚀
-colorFrom: red
-colorTo: red
-sdk: docker
-app_port: 8501
-tags:
-- streamlit
+title: RAG Chatbot PDF
+emoji: 📚
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+sdk_version: 1.35.0
+python_version: 3.10
+app_file: app.py
 pinned: false
-short_description: Streamlit template space
-license: mit
 ---
 
-# Welcome to Streamlit!
+# RAG Chatbot - Ask Questions About Your PDFs
 
-Edit `/src/streamlit_app.py` to customize this app to your heart's desire. :heart:
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+Upload PDF documents and ask questions. The AI answers based ONLY on your documents.
